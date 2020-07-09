@@ -10,36 +10,44 @@
     <title>The Essay Helper</title>
 </head>
 <body style="display: block; margin: 0px">
-    <div class="container-fluid" style="padding: 0 !important">
-        <header style="background-color: azure;">
+    <div class="container-fluid" style="padding: 0 !important;">
+        <header class="bg-success" style="border-bottom: 2px solid #1cffd2">
             <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/s2048x2048/106275268_1003673336718082_2105351401163650908_n.png?_nc_cat=105&_nc_sid=b96e70&_nc_ohc=eJNV3g785I0AX-wSaCa&_nc_ht=scontent.fhan2-4.fna&oh=9c8c010cb6fe70594f4549b9105d859b&oe=5F2B6579" alt="UwU" class="rounded-circle d-inline" style="width: 10%; height: 10%">
             <h1 class="d-inline">A very nice header</h1>
         </header>
-        <div class=""> <!-- center the body -->
-            <div class="float-left" style="margin: 20px; width: 60%">
-                <form action="index.html">
-                    <label for="myfile">Select a file:</label>
-                    <input type="file" id="myfile"><br><br>
-                    <input type="submit"> <!-- make sure to put submit inline with upload -->
+        <div class="row" style="margin: 10px 10px 10px 50px">
+            <div class="col-md-8" style="padding: 20px">
+                <form action="index.html" style="display: flex; padding-bottom: 10px">
+                    <label for="toConvert" style="padding-right: 10px;">Select a file to convert:</label>
+                    <input type="file" id="toConvert">
+                    <input type="submit"> 
+                    <!-- <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            <input type="file" class="custom-file-input input-group-text" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">                 
+                        </div>
+                        <div class="input-group-prepend">
+                            <input type="submit" class="input-group-text" id="inputGroupFileAddon01">
+                          </div>
+                      </div> -->
                 </form>
                 <form>
-                    <textarea style="width: 100%; height: 20vw">
-                        Note on upcoming work
-                        <ul>
-                            <li>Submit button: receive data -> process(java, php (?))</li>
-                            <li>Fill in the blank div</li>
-                            <li>Upload: limit to only docs and txt and size allowed is 1 MB</li>
-                            <li>Download button, filename: ORIGIN + "-converted", filetype: .txt</li>
+                    <textarea id="paper" style="width: 100%; height: 20vw">
+                        Note on upcoming work: 
+                        - Submit button: receive data -> process(java, php (?))
+                        - Fill in the blank div
+                        - Upload: limit to only docs and txt and size allowed is 1 MB
+                        - Download button, filename: ORIGIN + "-converted", filetype: .txt
                         </ul>
                     </textarea>
                 </form>
             </div>
-            <div class="float-left" style="width: 30%; border: 2px, margin: 20px">
+            <div class="col-md-3" style="border: 2px; margin: 20px">
                 <p>ranking board</p>
-                <ul>
-                    <li>Coffee</li>
-                    <li>Tea</li>
-                    <li>Milk</li>
+                
+                    Coffee
+                    Tea
+                    Milk
                   </ul>
             </div>
         </div>
@@ -48,6 +56,6 @@
             UwU information
         </footer>
     </div>
-    
+    <script type="module" src="getContent.js"></script>
 </body>
 </html>
