@@ -8,9 +8,14 @@ package proj5;
  */
 public class Counter implements Comparable<Counter> {
 
+    // some constants
+    private final String WORD = "word";
+    private final String COUNT = "count";
+
     // instance variables
     private String word;
     private Integer count;
+    private String priority;
 
     /**
      * count the number of appearance of a word in a paragraph
@@ -19,6 +24,7 @@ public class Counter implements Comparable<Counter> {
     public Counter(String word) {
         this.word = word;
         count = 0;
+        priority = WORD;
     }
 
     /**
@@ -26,6 +32,13 @@ public class Counter implements Comparable<Counter> {
      */
     public Integer getCount() {
         return count;
+    }
+
+    /**
+     * @return priority of this counter
+     */
+    public String getPriority() {
+        return priority;
     }
 
     /**
@@ -43,11 +56,22 @@ public class Counter implements Comparable<Counter> {
     }
 
     /**
+     * change the comparable state of this word counter
+     */
+    public void switchPriority() {
+        if (priority.equals(WORD)) priority = COUNT;
+        else if(priority.equals(COUNT)) priority = WORD;
+    }
+
+    /**
      * compare two counters
      * @param other another counter object
      * @return the compareTo of two words of those counters
      */
     public int compareTo(Counter other) {
+        if (priority.equals(COUNT)) {
+            return count.compareTo(other.count);
+        }
         return word.compareTo(other.word);
     }
 

@@ -1,5 +1,7 @@
 package proj5;
 
+import java.util.ArrayList;
+
 /**
  * class for computing word frequencies from a text file
  * author: Son Nguyen (Kyrie)
@@ -98,5 +100,25 @@ public class WordCounter {
      */
     public String toString() {
         return myWordCounter.toString();
+    }
+
+    /**
+     * @return words and their frequencies as a printable String.
+     * Each word/frequency pair should be on a separate line,
+     * and the format of each line should be <word>: <frequency>
+     * For example,
+     * are: 3
+     * bacon: 2
+     *
+     * Words should be in frequency order.
+     */
+    public String toStringByFreq() {
+        ArrayList<Counter> wcList = myWordCounter.finalArrayForm();
+        BinarySearchTree<Counter> freqVersion = new BinarySearchTree<Counter>();
+        for (Counter counter: wcList) {
+            counter.switchPriority();
+            freqVersion.insert(counter);
+        }
+        return freqVersion.toString();
     }
 }

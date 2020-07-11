@@ -5,6 +5,9 @@
  * @version 6/3/2020
  */
 package proj5;
+
+import java.util.ArrayList;
+
 public class BinarySearchTree<T extends Comparable<T>>
 {
 	private BSTNode<T> root;
@@ -169,37 +172,6 @@ public class BinarySearchTree<T extends Comparable<T>>
 		return height(root);
 	}
 
-
-//	/**
-//	 * NOTE: CRAPPY METHOD!  I wish I had toString...
-//	 *
-//	 * Recursive helper method of print.
-//	 * Uses inorder tree traversal algorithm.
-//	 * @param N subroot of tree to print
-//	 */
-//	private void printNode(BSTNode<T> N) {
-//		if (N != null) {      // do nothing if the node is null
-//			System.out.print("(");
-//			printNode(N.llink);
-//			System.out.print("  " + N.key + "  ");
-//			printNode(N.rlink);
-//			System.out.print(")");
-
-//		}
-//	}
-//
-//
-//	/**
-//	 * NOTE: CRAPPY METHOD!  I wish I had toString...
-//	 *
-//	 * prints a parenthesized version
-//	 * of the tree showing the subtree structure
-//	 */
-//	public void print() {
-//		printNode(root);
-//		System.out.println();
-//	}
-
 	/**
 	 * @param subroot the branch
 	 * @return string representation of a branch
@@ -219,9 +191,27 @@ public class BinarySearchTree<T extends Comparable<T>>
 	}
 
 	/**
-	 * @return string representation of the tree
+	 * @return string representation of the tree by alphabet
 	 */
 	public String toString() {
 		return branchString(root);
+	}
+
+	private ArrayList<T> arrayForm(BSTNode<T> subroot) {
+		ArrayList<T> toReturn = new ArrayList<T>();
+		if (subroot != null) {
+			if (subroot.llink != null) {
+				toReturn.addAll(arrayForm(subroot.llink));
+			}
+			toReturn.add((T) subroot.key);
+			if (subroot.rlink != null) {
+				toReturn.addAll(arrayForm(subroot.rlink));
+			}
+		}
+		return toReturn;
+	}
+
+	public ArrayList<T> finalArrayForm() {
+		return arrayForm(root);
 	}
 }
