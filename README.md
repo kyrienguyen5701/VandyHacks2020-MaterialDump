@@ -1,4 +1,4 @@
-# VandyHacks2020
+# VandyHacks2020-MaterialDump
 
 Drafts & materials dump of [The Essay Helper](https://github.com/thevuong8000/Grammar-Checker).
 
