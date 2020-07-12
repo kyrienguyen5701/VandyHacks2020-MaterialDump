@@ -1,13 +1,1 @@
-
-const FileContent = () => {
-    var uploadFile = require("fs");
-    uploadFile.readFile('Sample Essay.txt',  (err, data) => {
-        if (err) {
-        return console.error(err);
-        }
-        console.log(data.toString());
-    });
-}
-
-FileContent();
-// export default FileContent;
+const status = document.getElementById('status');const paper = document.getElementById('paper');if (window.FileList && window.File && window.FileReader) {document.getElementById('toUpload').addEventListener('change', event => {paper.src = '';status.textContent = '';const file = event.target.files[0];console.log(file.type);if (!file.type) {status.textContent = 'Error: This file type does not appear to be supported on this browser.';return;}if (!file.type.match('text/plain')) {status.textContent = 'Error: The selected file does not appear to be an text file.';return;}const reader = new FileReader();reader.addEventListener('load', event => {paper.innerHTML = event.target.result;});reader.readAsText(file);});}
